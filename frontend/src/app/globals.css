@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold: #c49a50;
+  --gold-light: #d4af70;
+  --obsidian: #0d0d0d;
+  --ivory: #f9f7f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ivory);
+  color: var(--obsidian);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Luxury scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #f3efe4; }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* ── Selection ── */
+::selection {
+  background: #d4af7040;
+  color: var(--obsidian);
+}
+
+/* ── Utility classes ── */
+.font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+.font-sans  { font-family: 'DM Sans', system-ui, sans-serif; }
+.font-mono  { font-family: 'DM Mono', monospace; }
+
+.text-gold        { color: var(--gold); }
+.border-gold      { border-color: var(--gold); }
+.bg-gold          { background-color: var(--gold); }
+.bg-ivory         { background-color: var(--ivory); }
+.bg-obsidian      { background-color: var(--obsidian); }
+
+/* ── Gold shimmer on hover ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    #f0d080 40%,
+    var(--gold) 60%,
+    #a07830 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Fade-in animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.fade-up {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; animation-fill-mode: both; }
+.fade-up-delay-2 { animation-delay: 0.2s; opacity: 0; animation-fill-mode: both; }
+.fade-up-delay-3 { animation-delay: 0.3s; opacity: 0; animation-fill-mode: both; }
+.fade-up-delay-4 { animation-delay: 0.4s; opacity: 0; animation-fill-mode: both; }
+
+/* ── Divider line ── */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
